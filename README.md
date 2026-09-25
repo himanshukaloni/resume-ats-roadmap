@@ -1,185 +1,60 @@
-# ResumePilot — AI Resume ATS Analyzer & Career Roadmap
+# ResumePilot 🚀
 
-ResumePilot is a production-oriented MERN stack web application that helps users analyze their resumes against ATS requirements, identify skill gaps, and generate a personalized career roadmap.
-
-Users can upload their resume, select a target role, receive an explainable ATS score, discover missing skills, and follow a structured roadmap to improve their career readiness.
+AI-powered Resume ATS Analyzer & Career Roadmap built with the MERN stack.
 
 ## ✨ Features
 
-### 📄 Resume Analysis
+- 📄 Upload PDF/DOCX resume
+- 🎯 Generate ATS score out of 100
+- 🧠 Analyze resume keywords and skills
+- 🔍 Detect missing skills and gaps
+- 🗺️ Generate personalized career roadmap
+- 📊 View resume analysis history
+- 🔐 JWT authentication
+- 🛡️ Protected API routes
+- ⚡ Modern animated React UI
+- 📱 Responsive design
 
-- Upload PDF or DOCX resumes
-- Automatic resume text extraction
-- Resume structure analysis
-- Keyword analysis
-- Skills detection
-- Experience signal analysis
-- Target-role matching
-- Explainable ATS score
+## 🛠️ Tech Stack
 
-### 🎯 ATS Score
+**Frontend:** React, Vite, Tailwind CSS, Framer Motion, Axios  
+**Backend:** Node.js, Express.js, MongoDB, Mongoose  
+**Authentication:** JWT, bcrypt  
+**Processing:** PDF/DOCX parsing, ATS scoring & skill matching
 
-ResumePilot analyzes multiple resume signals and provides a score out of 100.
+## 📁 Structure
 
-Analysis includes:
+```text
+client/
+  components/
+  pages/
+  services/
+  hooks/
 
-- Keyword Match
-- Resume Structure
-- Skills Match
-- Role Alignment
-- Experience Signals
-- Missing Skills
-- Improvement Suggestions
-
-Instead of providing only a score, ResumePilot explains the factors affecting the result.
-
-### 🧠 Skill Gap Detection
-
-The platform identifies skills relevant to the selected target role that are missing or insufficiently represented in the resume.
-
-
-🏗️ Tech Stack
-Frontend
-React
-Vite
-React Router
-Axios
-Framer Motion
-Tailwind CSS
-Lucide React
-Backend
-Node.js
-Express.js
-MongoDB
-Mongoose
-JWT
-bcrypt
-Multer
-Zod
-Resume Processing
-PDF text extraction
-DOCX text extraction
-Resume parsing service
-ATS scoring engine
-Skill matching engine
-Roadmap generation service
-📁 Project Structure
-resume-ats-roadmap/
-│
-├── client/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── auth/
-│   │   │   ├── common/
-│   │   │   ├── dashboard/
-│   │   │   ├── layout/
-│   │   │   ├── resume/
-│   │   │   ├── roadmap/
-│   │   │   └── ui/
-│   │   │
-│   │   ├── context/
-│   │   ├── hooks/
-│   │   ├── lib/
-│   │   ├── pages/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── styles/
-│   │   └── App.jsx
-│   │
-│   ├── package.json
-│   └── vite.config.js
-│
-├── server/
-│   ├── src/
-│   │   ├── config/
-│   │   ├── constants/
-│   │   ├── controllers/
-│   │   ├── jobs/
-│   │   ├── loaders/
-│   │   ├── middlewares/
-│   │   ├── models/
-│   │   ├── prompts/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── templates/
-│   │   ├── utils/
-│   │   └── validators/
-│   │
-│   ├── server.js
-│   ├── package.json
-│   └── .env
-│
-├── docs/
-├── tests/
-├── docker-compose.yml
-├── PROJECT_STRUCTURE.md
-├── .gitignore
-└── README.md
-🔄 Application Flow
-                    ┌──────────────────┐
-                    │    User visits   │
-                    │    ResumePilot   │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │ Upload Resume    │
-                    │    PDF / DOCX    │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │ Resume Parser    │
-                    │ Extract Content  │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │ ATS Analysis     │
-                    │                  │
-                    │ Keywords         │
-                    │ Skills           │
-                    │ Structure        │
-                    │ Experience       │
-                    │ Role Match       │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │ ATS Score /100   │
-                    └────────┬─────────┘
-                             │
-                  ┌──────────┴──────────┐
-                  ▼                     ▼
-          ┌───────────────┐     ┌────────────────┐
-          │ Skill Gaps    │     │ Resume         │
-          │ Detection     │     │ Improvements   │
-          └───────┬───────┘     └───────┬────────┘
-                  │                     │
-                  └──────────┬──────────┘
-                             ▼
-                    ┌──────────────────┐
-                    │ Career Roadmap   │
-                    │                  │
-                    │ Learn → Build    │
-                    │ Practice → Apply │
-                    └──────────────────┘
-🚀 Getting Started
-Prerequisites
-
-Make sure you have installed:
-
-Node.js 18+
-npm
-MongoDB
-Git
-
-Check your versions:
-
-node --version
-npm --version
-📥 Installation
-
-Clone the repository:
-
+server/
+  config/
+  controllers/
+  middlewares/
+  models/
+  routes/
+  services/
+  validators/
+🚀 Run Locally
 git clone https://github.com/himanshukaloni/resume-ats-roadmap.git
+cd resume-ats-roadmap
+Backend
+cd server
+npm install
+npm run dev
+Frontend
+cd client
+npm install
+npm run dev
+🎯 Goal
+
+ResumePilot converts a resume into an actionable ATS analysis, skill-gap report, and personalized career roadmap.
+
+👨‍💻 Author
+
+Himanshu Kaloni
+BCA — Graphic Era Hill University
