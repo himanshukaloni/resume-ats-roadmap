@@ -1,0 +1,2 @@
+import {Router} from "express"; import {authenticate} from "../middlewares/auth.js"; import {resumeUpload} from "../middlewares/upload.js"; import {analyzeController,historyController,getController} from "../controllers/resumeController.js";
+const r=Router();r.use(authenticate);r.post("/analyze",resumeUpload.single("resume"),analyzeController);r.get("/history",historyController);r.get("/:id",getController);export default r;

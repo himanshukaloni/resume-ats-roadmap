@@ -1,0 +1,2 @@
+import {Link,useNavigate} from "react-router-dom"; import {LogOut,Sparkles} from "lucide-react"; import {useAuth} from "../../context/AuthContext";
+export default function Navbar(){const {user,logout}=useAuth(),nav=useNavigate();return <header className="navbar"><Link to="/dashboard" className="brand"><Sparkles/> ResumePilot</Link><nav><Link to="/dashboard">Dashboard</Link><Link to="/analyze">Analyze</Link><Link to="/history">History</Link></nav>{user&&<button className="icon-btn" onClick={()=>{logout();nav("/")}} title="Logout"><LogOut size={18}/></button>}</header>}

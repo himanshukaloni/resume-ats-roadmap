@@ -1,0 +1,3 @@
+import User from "../models/User.js"; import {hashPassword,comparePassword} from "../utils/password.js"; import {signToken} from "../utils/jwt.js";
+export async function register({name,email,password}){if(await User.exists({email}))throw Object.assign(new Error("Email already registered"),{status:409});const user=await User.create({name,email,passwordHash:await hashPassword(password)});return {user,token:signToken(user._id)}}
+export async function login({email,password}){const user=await User.findOne({email});if(!user||!(await comparePassword(password,user.passwordHash)))throw Object.assign(new Error("Invalid email or password"),{status:401});return {user,token:signToken(user._id)}}

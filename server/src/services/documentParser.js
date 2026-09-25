@@ -1,0 +1,2 @@
+import pdf from "pdf-parse";
+export async function extractResumeText(file){if(file.mimetype==="application/pdf"){const out=await pdf(file.buffer);return out.text||""}if(file.mimetype.includes("wordprocessingml")){const {default:parseDocx}=await import("docx-parser");return await new Promise((resolve,reject)=>parseDocx(file.buffer,(d,e)=>e?reject(e):resolve(typeof d==="string"?d:"")))}throw new Error("Unsupported resume format")}

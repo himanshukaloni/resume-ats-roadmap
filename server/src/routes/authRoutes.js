@@ -1,0 +1,2 @@
+import {Router} from "express"; import {registerController,loginController,meController} from "../controllers/authController.js"; import {validate} from "../middlewares/validate.js"; import {registerSchema,loginSchema} from "../validators/auth.js"; import {authenticate} from "../middlewares/auth.js"; import {authLimiter} from "../middlewares/rateLimiter.js";
+const r=Router();r.post("/register",authLimiter,validate(registerSchema),registerController);r.post("/login",authLimiter,validate(loginSchema),loginController);r.get("/me",authenticate,meController);export default r;

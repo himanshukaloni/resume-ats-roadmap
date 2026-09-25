@@ -1,0 +1,2 @@
+import User from "../models/User.js"; import {verifyToken} from "../utils/jwt.js";
+export async function authenticate(req,res,next){try{const h=req.headers.authorization;if(!h?.startsWith("Bearer "))return res.status(401).json({message:"Authentication required"});const {sub}=verifyToken(h.slice(7));const user=await User.findById(sub);if(!user)return res.status(401).json({message:"Invalid session"});req.user=user;next()}catch(e){res.status(401).json({message:"Invalid or expired token"})}}
